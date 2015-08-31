@@ -11,12 +11,21 @@
 
 <template name="transactions">
   <table>
+    <tr>
+      <td>date/time</td>
+      <td>payee</td>
+      <td>amount</td>
+      <td>action</td>
+    </tr>
     {{#each transactions}}
       <!-- NOTE: The data context in this each block is a transaction -->
-      <tr>
+      <tr class="{{isDuplicate}}">
         <td>{{formatTime date}}</td>
         <td>{{payee}}</td>
         <td>{{amount}}</td>
+        <td>
+          <a href="#" class="duplicate">duplicate</a>
+        </td>
       </tr>
     {{/each}}
   </table>

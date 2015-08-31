@@ -10,3 +10,12 @@ h1 {
 td {
   padding: 5px 5px 5px 0px;
 }
+
+table {
+  border-spacing: 0px;
+
+}
+
+tr.duplicate {
+  background: #E1A4E6;
+}
