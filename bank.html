@@ -5,4 +5,19 @@
 
 <body>
   <h1>Bank</h1>
+
+  {{> transactions}}
 </body>
+
+<template name="transactions">
+  <table>
+    {{#each transactions}}
+      <!-- NOTE: The data context in this each block is a transaction -->
+      <tr>
+        <td>{{formatTime date}}</td>
+        <td>{{payee}}</td>
+        <td>{{amount}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</template>
