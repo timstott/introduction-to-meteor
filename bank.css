@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+body {
+  font-family: Arial;
+}
+
+h1 {
+  color: purple;
+}
