@@ -26,3 +26,6 @@ Template.transactions.events({
     event.preventDefault();
   }
 });
+
+Meteor.subscribe('transactions');
+
