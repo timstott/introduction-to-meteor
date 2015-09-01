@@ -4,7 +4,7 @@ Introduction to Meteor [slides](https://docs.google.com/presentation/d/1rEkZYE6C
 
 ## Workshop Requirements
 
-- Clone this repository  
+- Clone this repository
 - Install Meteor
 
 ```
@@ -24,6 +24,7 @@ Each mission lives on its own branch and is prefixed with `/m\d\d/`.
 Begin the first mission with `git checkout m00`
 
 ### 00 Everything in order?
+
 - Start the application with the `meteor` command and
 browse to *http://localhost:3000*.
 - The application is made of 3 files:
@@ -34,6 +35,7 @@ browse to *http://localhost:3000*.
 consoles.
 
 ### 01 Database everywhere
+
 - In *bank.js* we create a new collection, seed new records, create
 a transactions template to display all transactions.
 - Insert a new record server side and observe the changes in the UI.  
@@ -57,8 +59,8 @@ By default Meteor publishes and subscribes to all collections and allows
 unsecure document inserts fromt the client.
 
 In this mission we also:
-- Defined the `formatTime` Template helper to format dates
-- Installed the Moment.js Meteor smart package
+- Defined the `formatTime` Template helper to format dates.
+- Installed the Moment.js Meteor smart package.
 
 ### 02 Meteor methods (a.k.a RPC)
 - In *bank.js* we define a Meteor method `transactions/duplicate`. It allows to
@@ -68,6 +70,24 @@ toggle transactions as duplicates.
 The duplicate link event helper calls the Meteor method which executes both
 on the client and the server. Data on the client can be updated immidiatly and
 updated with data from the server when it returns.
+
+### 03 Structuring our application
+- The code in *bank.js* is splitted into multiple files and directories to
+ease edits.
+
+NOTE: no `require` statements were added. Yet everything works ✨.
+
+### 04 Secutiry
+- We remove the `autopublish` package to selectively publish data.
+- On the sever we create a `transactions` publication which the client
+subscribes to.
+- We remove the `insecure` to prevent document inserts, updates and removals
+from the client without defining limitations.
+- We define rules on the `Transactions` collection.
+- Attempt to insert/update a document in the client and observe the console.
+
+NOTE: the duplicate field in the `transations` is not published. Observe the
+effects of latency compensation in the client.
 
 ## Credits/Resources
 
